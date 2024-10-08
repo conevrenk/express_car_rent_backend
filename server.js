@@ -7,6 +7,7 @@ const {
   createCar,
 } = require("./controllers");
 const { logger } = require("./middleware");
+const idControl  = require("./middleware/idControl");
 
 // kurulum
 const app = express();
@@ -14,6 +15,8 @@ const PORT = 3000;
 
 // middleware kullanımı
 app.use(logger);
+
+
 // istekleri bod/header/param bölümlerini işleyen middleware
 app.use(express.json());
 
@@ -22,7 +25,10 @@ app.use(express.json());
 app
     .route("/api/v1/cars")
     .get(getAllCars)
-    .post(createCar);
+  .post(createCar);
+    
+  // isteğin parametresi ile gelen id geçerli mi? kontrol eden mw
+app.use(idControl);
 
 app
     .route("/api/v1/cars/:id")

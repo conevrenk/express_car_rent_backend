@@ -23,11 +23,11 @@ exports.createCar = (req, res) => {
   cars.push(newCar);
   // json dosyasını güncelle
   write(cars);
-  
+
   // cliente cevap gönder
   res.status(201).json({
     message: "yeni araç oluşturuldu",
-    car:newCar,
+    car: newCar,
   });
 };
 
@@ -35,6 +35,12 @@ exports.createCar = (req, res) => {
 exports.getCar = (req, res) => {
   // isteğe parametre olarak gelen id li elemanı diziden al
   const found = cars.find((car) => car.id === req.params.id);
+  // eğer eleman bulunamadıysa hata gönder
+  if (!found)
+    return res
+      .status(404)
+      .json({ mesage: "Gönderilen id ye sahip bir araç bulunamadı" });
+
   res.status(200).json({
     message: "araç bulundu",
     car: found,
@@ -49,7 +55,23 @@ exports.updateCar = (req, res) => {
 };
 // bir aracı sil
 exports.deleteCar = (req, res) => {
-  res.status(203).json({
+  // isteğe parametre olarak gelen id li elemanı diziden al
+  const found = cars.find((car) => car.id === req.params.id);
+
+  // eğer eleman bulunamadıysa hata gönder
+  if (!found)
+    return res
+    .status(404)
+    .json({ message: "Gönderilen id sahip bir araç bulunamadı" });
+
+  // id si gelen aracı diziden kaldır
+  cars = cars.filtrer((car) => car.id !== req.params.id);
+  
+  // json dosyasını güncelle
+  write(cars);
+  
+// cliente cevap gönder
+  res.status(204).json({
     message: "araç silindi",
   });
 };
