@@ -11,7 +11,6 @@
     "vites": "Otomatik",
     "durum": "Kullanılmış"
   },
-
   {
     "id": "2",
     "marka": "Honda",
@@ -83,5 +82,17 @@
     "vites": "Otomatik",
     "durum": "Kullanılmış",
     "id": "966112bc-dcf4-4e76-81ce-496d59ec1ff1"
+  },
+  {
+    "marka": "volvo",
+    "model": "i30",
+    "yıl": 2015,
+    "renk": "mavi",
+    "fiyat": 10000000,
+    "kilometre": 41000,
+    "yakıt_türü": "Benzin",
+    "vites": "Otomatik",
+    "durum": "Kullanılmış",
+    "id": "37aeaf2f-0be0-47e3-b0f9-ba4e485e4cd9"
   }
 ]

@@ -4,11 +4,13 @@
   "description": "-Get `/api/v1/cars`> bütün araç verilerini al\r -Post `/api/v1/cars`> yeni araç ekle\r -----------------------------------------------------\r -Get `/api/v1/cars/ID` >Id sı bilinen araç verisini al\r -Patch `/api/v1/cars/ID`> ID si bilinen arac verisini güncelle\r -Delete `/api/v1/cars/ID`> ID si bilinen arac verisini sil",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "nodemon": "^3.1.7"
   }
 }
