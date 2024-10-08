@@ -27,14 +27,13 @@ app
     .get(getAllCars)
   .post(createCar);
     
-  // isteğin parametresi ile gelen id geçerli mi? kontrol eden mw
-app.use(idControl);
+
 
 app
     .route("/api/v1/cars/:id")
-    .get(getCar)
-    .patch(updateCar)
-    .delete(deleteCar);
+    .get(idControl,getCar)
+    .patch(idControl,updateCar)
+    .delete(idControl,deleteCar);
 
 // dinlenecek portu belirle
 app.listen(PORT, () => {

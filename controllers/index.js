@@ -33,17 +33,22 @@ exports.createCar = (req, res) => {
 
 // bir aracı al:
 exports.getCar = (req, res) => {
-  // isteğe parametre olarak gelen id li elemanı diziden al
-  const found = cars.find((car) => car.id === req.params.id);
-  // eğer eleman bulunamadıysa hata gönder
-  if (!found)
-    return res
-      .status(404)
-      .json({ mesage: "Gönderilen id ye sahip bir araç bulunamadı" });
-
   res.status(200).json({
     message: "araç bulundu",
-    car: found,
+  car:req.car,
+  });
+};
+// bir aracı sil
+exports.deleteCar = (req, res) => {
+  // id si gelen aracı diziden kaldır
+  cars = cars.filtrer((car) => car.id !== req.params.id);
+
+  // json dosyasını güncelle
+  write(cars);
+
+  // cliente cevap gönder
+  res.status(204).json({
+    message: "araç silindi",
   });
 };
 
@@ -51,27 +56,5 @@ exports.getCar = (req, res) => {
 exports.updateCar = (req, res) => {
   res.status(200).json({
     message: "araç güncellendi",
-  });
-};
-// bir aracı sil
-exports.deleteCar = (req, res) => {
-  // isteğe parametre olarak gelen id li elemanı diziden al
-  const found = cars.find((car) => car.id === req.params.id);
-
-  // eğer eleman bulunamadıysa hata gönder
-  if (!found)
-    return res
-    .status(404)
-    .json({ message: "Gönderilen id sahip bir araç bulunamadı" });
-
-  // id si gelen aracı diziden kaldır
-  cars = cars.filtrer((car) => car.id !== req.params.id);
-  
-  // json dosyasını güncelle
-  write(cars);
-  
-// cliente cevap gönder
-  res.status(204).json({
-    message: "araç silindi",
   });
 };
