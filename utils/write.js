@@ -1,4 +1,4 @@
-const fs=require("fs")
+const fs = require("fs");
 // parametre olarak gelen araç verilerini json dosyasına yazar
 module.exports = (cars) => {
     fs.writeFile(
