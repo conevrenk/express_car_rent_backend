@@ -2,7 +2,6 @@ const express = require("express");
 const { logger } = require("./middleware");
 const carRoutes = require("./routes/carRoutes");
 
-
 // kurulum
 const app = express();
 const PORT = 3000;
@@ -14,8 +13,7 @@ app.use(logger);
 app.use(express.json());
 
 // route/endpoint leri tanımla
-app.use(carRoutes());
-
+app.use(carRoutes);
 
 // dinlenecek portu belirle
 app.listen(PORT, () => {

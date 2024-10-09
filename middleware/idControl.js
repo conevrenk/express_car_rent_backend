@@ -1,7 +1,7 @@
 const fs = require("fs");
 // araba verilerini al
 let cars = JSON.parse(
-  fs.readFileSync(`${__dirname}/..data/cars.json`, "utf-8")
+  fs.readFileSync(`${__dirname}/../data/cars.json`, "utf-8")
 );
 
 module.exports = (req, res, next) => {
