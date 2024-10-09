@@ -1,6 +1,5 @@
 const express = require("express");
 const { logger } = require("./middleware");
-const idControl=require("./middleware/idControl")
 const carRoutes = require("./routes/carRoutes");
 
 
